@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-demo-app
+  namespace: nginx-demo
+spec:
+  project: nginx-demo
+  source:
+    repoURL: https://github.com/helm/examples/tree/main/charts
+    chart: hello-world
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-demo
